@@ -1,0 +1,1079 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00000001b09a6176, pid=70660, tid=22531
+#
+# JRE version: OpenJDK Runtime Environment Zulu17.34+19-CA (17.0.3+7) (build 17.0.3+7-LTS)
+# Java VM: OpenJDK 64-Bit Server VM Zulu17.34+19-CA (17.0.3+7-LTS, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, bsd-amd64)
+# Problematic frame:
+# C  [libarrow.1200.dylib+0x1728176]  Aws::Http::CleanupHttp()+0x36
+#
+# No core dump will be written. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   http://www.azul.com/support/
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Xmx13743895347 -Xcheck:jni 
+
+Host: "MacBookAir10,1" x86_64 (EMULATED) 2400 MHz, 8 cores, 16G, Darwin 21.5.0, macOS 12.4 (21F79)
+Time: Sat Jun 24 20:37:20 2023 -03 elapsed time: 76.485154 seconds (0d 0h 1m 16s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007fcb1e0bf400):  VMThread "VM Thread" [stack: 0x000000030cd9e000,0x000000030ce9e000] [id=22531]
+
+Stack: [0x000000030cd9e000,0x000000030ce9e000],  sp=0x000000030ce9d850,  free space=1022k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libarrow.1200.dylib+0x1728176]  Aws::Http::CleanupHttp()+0x36
+C  [libarrow.1200.dylib+0x1722862]  Aws::ShutdownAPI(Aws::SDKOptions const&)+0x22
+C  [libarrow.1200.dylib+0x101f8d2]  arrow::fs::(anonymous namespace)::AwsInstance::~AwsInstance()+0xf2
+C  [libarrow.1200.dylib+0xcc324e]  arrow::internal::ThreadPool::State::~State()+0x8e
+C  [libarrow.1200.dylib+0xcbdfc8]  arrow::internal::ThreadPool::~ThreadPool()+0x58
+C  [libarrow.1200.dylib+0xcbe25e]  arrow::internal::ThreadPool::~ThreadPool()+0xe
+C  [libarrow.1200.dylib+0x28211]  std::__1::shared_ptr<arrow::Buffer>::~shared_ptr()+0x31
+C  [libsystem_c.dylib+0x2ede4]  __cxa_finalize_ranges+0x199
+C  [libsystem_c.dylib+0x2ebfe]  exit+0x23
+V  [libjvm.dylib+0x8b62e9]  os::exit(int)+0x9
+V  [libjvm.dylib+0xb22510]  VM_Exit::doit()+0x120
+V  [libjvm.dylib+0xb21916]  VM_Operation::evaluate()+0xd6
+V  [libjvm.dylib+0xb26e87]  VMThread::evaluate_operation(VM_Operation*)+0x157
+V  [libjvm.dylib+0xb277a2]  VMThread::inner_execute(VM_Operation*)+0x1f2
+V  [libjvm.dylib+0xb26acc]  VMThread::run()+0xbc
+V  [libjvm.dylib+0xaa29ba]  Thread::call_run()+0x11a
+V  [libjvm.dylib+0x8afed8]  thread_native_entry(Thread*)+0x148
+C  [libsystem_pthread.dylib+0x64e1]  _pthread_start+0x7d
+C  [libsystem_pthread.dylib+0x1f6b]  thread_start+0xf
+
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 1 (SEGV_MAPERR), si_addr: 0x00040001b11d52b0
+
+Register to memory mapping:
+
+RAX=0x00040001b11d5280 is an unknown value
+RBX=0x00007fcb2d7828d0 points into unknown readable memory: 0x00000001b1155c08 | 08 5c 15 b1 01 00 00 00
+RCX=0x0 is NULL
+RDX=0x00000000000d2480 is an unknown value
+RSP=0x000000030ce9d850 points into unknown readable memory: 0x0000000000005803 | 03 58 00 00 00 00 00 00
+RBP=0x000000030ce9d860 points into unknown readable memory: 0x000000030ce9d880 | 80 d8 e9 0c 03 00 00 00
+RSI=0x00000000283d2833 is an unknown value
+RDI=0x00007fcb2d9d33d8 points into unknown readable memory: 0x00040001b11d5280 | 80 52 1d b1 01 00 04 00
+R8 =0x000000000000c9f5 is an unknown value
+R9 =0x0000000000000017 is an unknown value
+R10=0x00007fcb1ee00000 points into unknown readable memory: 0x00007fcb2d900000 | 00 00 90 2d cb 7f 00 00
+R11=0x0 is NULL
+R12=0x00007fcb1ea41ed0 points into unknown readable memory: 0x00007fcb2d7828c0 | c0 28 78 2d cb 7f 00 00
+R13=0x0000000000000120 is an unknown value
+R14=0x0 is NULL
+R15=0x00007ff8512c9c10: _ZZNSt3__112__get_sp_mutEPKvE4muts+0x10 in /usr/lib/libc++.1.dylib at 0x00007ff80fb00000
+
+
+Registers:
+RAX=0x00040001b11d5280, RBX=0x00007fcb2d7828d0, RCX=0x0000000000000000, RDX=0x00000000000d2480
+RSP=0x000000030ce9d850, RBP=0x000000030ce9d860, RSI=0x00000000283d2833, RDI=0x00007fcb2d9d33d8
+R8 =0x000000000000c9f5, R9 =0x0000000000000017, R10=0x00007fcb1ee00000, R11=0x0000000000000000
+R12=0x00007fcb1ea41ed0, R13=0x0000000000000120, R14=0x0000000000000000, R15=0x00007ff8512c9c10
+RIP=0x00000001b09a6176, EFLAGS=0x0000000000000202, ERR=0x0000000000000004
+  TRAPNO=0x000000000000000e
+
+Top of Stack: (sp=0x000000030ce9d850)
+0x000000030ce9d850:   0000000000005803 00007fcb2d7828d0
+0x000000030ce9d860:   000000030ce9d880 00000001b09a0862
+0x000000030ce9d870:   0000000000000000 00007fcb2d7828c0
+0x000000030ce9d880:   000000030ce9d8c0 00000001b029d8d2
+0x000000030ce9d890:   00000001b113d408 0000000000000000
+0x000000030ce9d8a0:   000000030ce9d801 00007fcb2d7828a0
+0x000000030ce9d8b0:   00007fcb1ea41ed0 00007fcb1ea4ab28
+0x000000030ce9d8c0:   000000030ce9d8f0 00000001aff4124e
+0x000000030ce9d8d0:   00007fcb1ea4ab10 0000000000000002
+0x000000030ce9d8e0:   0000000000000000 0000000000000000
+0x000000030ce9d8f0:   000000030ce9d920 00000001aff3bfc8
+0x000000030ce9d900:   0000000000000000 00007fcb1ea42c00
+0x000000030ce9d910:   0000000000000000 0000000000000000
+0x000000030ce9d920:   000000030ce9d940 00000001aff3c25e
+0x000000030ce9d930:   00000001b113d058 00007fcb1eaf67a0
+0x000000030ce9d940:   000000030ce9d960 00000001af2a6211
+0x000000030ce9d950:   0000000000000000 00007fcb2f0d0a00
+0x000000030ce9d960:   000000030ce9d9c0 00007ff80faa5de4
+0x000000030ce9d970:   000000010ba0c080 0000000000000009
+0x000000030ce9d980:   000000000000000a 0000000000000008
+0x000000030ce9d990:   0000000000000000 000000000000008f
+0x000000030ce9d9a0:   00007fcb1e0ba6d8 00007fcb1e0bf6a0
+0x000000030ce9d9b0:   000000031174e858 000000030ce9da10
+0x000000030ce9d9c0:   000000030ce9d9e0 00007ff80faa5bfe
+0x000000030ce9d9d0:   0000000000000000 00007fcb1e0bf400
+0x000000030ce9d9e0:   000000030ce9d9f0 00000001160352e9
+0x000000030ce9d9f0:   000000030ce9da70 00000001162a1510
+0x000000030ce9da00:   0000000000000050 0000000000000005
+0x000000030ce9da10:   0000000000000000 00007fcb1e0bf400
+0x000000030ce9da20:   00007fcb0d82f260 0000000000000100
+0x000000030ce9da30:   0000000000000000 0000000000000001
+0x000000030ce9da40:   000000010ba0c000 00007fcb0000000c 
+
+Instructions: (pc=0x00000001b09a6176)
+0x00000001b09a6076:   55 ff ff ff 48 8d 3d e7 c2 85 00 e8 48 1a 3e 00
+0x00000001b09a6086:   85 c0 0f 84 37 ff ff ff 48 8b 3d 73 11 76 00 48
+0x00000001b09a6096:   8d 35 bc c2 85 00 48 8d 15 5d 7f 8d fe e8 02 1a
+0x00000001b09a60a6:   3e 00 48 8d 3d b9 c2 85 00 e8 20 1a 3e 00 e9 0c
+0x00000001b09a60b6:   ff ff ff 48 8d 3d a8 c2 85 00 e8 09 1a 3e 00 85
+0x00000001b09a60c6:   c0 0f 84 10 ff ff ff 48 8b 3d 34 11 76 00 48 8d
+0x00000001b09a60d6:   35 7d c2 85 00 48 8d 15 1e 7f 8d fe e8 c3 19 3e
+0x00000001b09a60e6:   00 48 8d 3d 7a c2 85 00 e8 e1 19 3e 00 e9 e5 fe
+0x00000001b09a60f6:   ff ff 48 8d 3d 69 c2 85 00 e8 ca 19 3e 00 85 c0
+0x00000001b09a6106:   0f 84 28 ff ff ff 48 8b 3d f5 10 76 00 48 8d 35
+0x00000001b09a6116:   3e c2 85 00 48 8d 15 df 7e 8d fe e8 84 19 3e 00
+0x00000001b09a6126:   48 8d 3d 3b c2 85 00 e8 a2 19 3e 00 e9 fd fe ff
+0x00000001b09a6136:   ff 66 0f 1f 84 00 00 00 00 00 55 48 89 e5 53 50
+0x00000001b09a6146:   8a 05 1c c2 85 00 84 c0 0f 84 85 00 00 00 48 83
+0x00000001b09a6156:   3d fc c1 85 00 00 74 5d 8a 05 04 c2 85 00 84 c0
+0x00000001b09a6166:   0f 84 ac 00 00 00 48 8b 3d e5 c1 85 00 48 8b 07
+0x00000001b09a6176:   ff 50 30 8a 05 e9 c1 85 00 84 c0 0f 84 d0 00 00
+0x00000001b09a6186:   00 48 c7 05 c6 c1 85 00 00 00 00 00 48 8b 1d c7
+0x00000001b09a6196:   c1 85 00 48 c7 05 bc c1 85 00 00 00 00 00 48 85
+0x00000001b09a61a6:   db 74 12 48 c7 c0 ff ff ff ff f0 48 0f c1 43 08
+0x00000001b09a61b6:   48 85 c0 74 07 48 83 c4 08 5b 5d c3 48 8b 03 48
+0x00000001b09a61c6:   89 df ff 50 10 48 89 df 48 83 c4 08 5b 5d e9 09
+0x00000001b09a61d6:   17 3e 00 48 8d 3d 88 c1 85 00 e8 e9 18 3e 00 85
+0x00000001b09a61e6:   c0 0f 84 67 ff ff ff 48 8b 3d 14 10 76 00 48 8d
+0x00000001b09a61f6:   35 5d c1 85 00 48 8d 15 fe 7d 8d fe e8 a3 18 3e
+0x00000001b09a6206:   00 48 8d 3d 5a c1 85 00 e8 c1 18 3e 00 e9 3c ff
+0x00000001b09a6216:   ff ff 48 8d 3d 49 c1 85 00 e8 aa 18 3e 00 85 c0
+0x00000001b09a6226:   0f 84 40 ff ff ff 48 8b 3d d5 0f 76 00 48 8d 35
+0x00000001b09a6236:   1e c1 85 00 48 8d 15 bf 7d 8d fe e8 64 18 3e 00
+0x00000001b09a6246:   48 8d 3d 1b c1 85 00 e8 82 18 3e 00 e9 15 ff ff
+0x00000001b09a6256:   ff 48 8d 3d 0a c1 85 00 e8 6b 18 3e 00 85 c0 0f
+0x00000001b09a6266:   84 1c ff ff ff 48 8b 3d 96 0f 76 00 48 8d 35 df 
+
+
+Stack slot to memory mapping:
+stack at sp + 0 slots: 0x0000000000005803 is an unknown value
+stack at sp + 1 slots: 0x00007fcb2d7828d0 points into unknown readable memory: 0x00000001b1155c08 | 08 5c 15 b1 01 00 00 00
+stack at sp + 2 slots: 0x000000030ce9d880 points into unknown readable memory: 0x000000030ce9d8c0 | c0 d8 e9 0c 03 00 00 00
+stack at sp + 3 slots: 0x00000001b09a0862: _ZN3Aws11ShutdownAPIERKNS_10SDKOptionsE+0x22 in /opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pyarrow/libarrow.1200.dylib at 0x00000001af27e000
+stack at sp + 4 slots: 0x0 is NULL
+stack at sp + 5 slots: 0x00007fcb2d7828c0 points into unknown readable memory: 0x00000001b1155e18 | 18 5e 15 b1 01 00 00 00
+stack at sp + 6 slots: 0x000000030ce9d8c0 points into unknown readable memory: 0x000000030ce9d8f0 | f0 d8 e9 0c 03 00 00 00
+stack at sp + 7 slots: 0x00000001b029d8d2: _ZN5arrow2fs12_GLOBAL__N_111AwsInstanceD1Ev+0xf2 in /opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pyarrow/libarrow.1200.dylib at 0x00000001af27e000
+
+VM_Operation (0x000000031174e858): Exit, mode: safepoint, requested by thread 0x00007fcb5eac9800
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007fcb0d82f260, length=12, elements={
+0x00007fcb3d883a00, 0x00007fcb3d886e00, 0x00007fcb3d882c00, 0x00007fcb5ddd8800,
+0x00007fcb5ddd8e00, 0x00007fcb3d8ba400, 0x00007fcb5ddd4400, 0x00007fcb5ddd4a00,
+0x00007fcb5ddd5000, 0x00007fcb3d8baa00, 0x00007fcb5ddd5c00, 0x00007fcb5eac9800
+}
+
+Java Threads: ( => current thread )
+  0x00007fcb3d883a00 JavaThread "main" [_thread_in_native, id=259, stack(0x0000000305de7000,0x00000003065e7000)]
+  0x00007fcb3d886e00 JavaThread "Reference Handler" daemon [_thread_blocked, id=22795, stack(0x000000030cea1000,0x000000030cfa1000)]
+  0x00007fcb3d882c00 JavaThread "Finalizer" daemon [_thread_blocked, id=23043, stack(0x000000030cfa4000,0x000000030d0a4000)]
+  0x00007fcb5ddd8800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=25091, stack(0x000000030d12f000,0x000000030d22f000)]
+  0x00007fcb5ddd8e00 JavaThread "Service Thread" daemon [_thread_blocked, id=26115, stack(0x000000030d232000,0x000000030d332000)]
+  0x00007fcb3d8ba400 JavaThread "Monitor Deflation Thread" daemon [_thread_blocked, id=26371, stack(0x000000030d335000,0x000000030d435000)]
+  0x00007fcb5ddd4400 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=39683, stack(0x000000030d438000,0x000000030d538000)]
+  0x00007fcb5ddd4a00 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=39171, stack(0x000000030d53b000,0x000000030d63b000)]
+  0x00007fcb5ddd5000 JavaThread "Sweeper thread" daemon [_thread_blocked, id=26627, stack(0x000000030d63e000,0x000000030d73e000)]
+  0x00007fcb3d8baa00 JavaThread "Notification Thread" daemon [_thread_blocked, id=38415, stack(0x000000030d741000,0x000000030d841000)]
+  0x00007fcb5ddd5c00 JavaThread "Common-Cleaner" daemon [_thread_blocked, id=27919, stack(0x000000030d947000,0x000000030da47000)]
+  0x00007fcb5eac9800 JavaThread "SIGTERM handler" daemon [_thread_blocked, id=32775, stack(0x000000031164f000,0x000000031174f000)]
+
+Other Threads:
+=>0x00007fcb1e0bf400 VMThread "VM Thread" [stack: 0x000000030cd9e000,0x000000030ce9e000] [id=22531]
+  0x00007fcb1e5db600 GCTaskThread "GC Thread#0" [stack: 0x000000030c88f000,0x000000030c98f000] [id=15363]
+  0x00007fcb1e0d7580 GCTaskThread "GC Thread#1" [stack: 0x000000030db4d000,0x000000030dc4d000] [id=36923]
+  0x00007fcb1e83c9e0 GCTaskThread "GC Thread#2" [stack: 0x000000030dc50000,0x000000030dd50000] [id=35751]
+  0x00007fcb1e83d270 GCTaskThread "GC Thread#3" [stack: 0x000000030dd53000,0x000000030de53000] [id=29699]
+  0x00007fcb1e5dbae0 ConcurrentGCThread "G1 Main Marker" terminated
+  0x00007fcb1e5dc190 ConcurrentGCThread "G1 Conc#0" [stack: 0x000000030ca95000,0x000000030cb95000] [id=18179]
+  0x00007fcb1e5ddc30 ConcurrentGCThread "G1 Refine#0" terminated
+  0x00007fcb1e0af790 ConcurrentGCThread "G1 Service" terminated
+
+Threads with active compile tasks:
+
+VM state: at safepoint (shutting down)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00007fcb1e3b9d20] Threads_lock - owner thread: 0x00007fcb1e0bf400
+[0x00007fcb1d744d90] Heap_lock - owner thread: 0x00007fcb5eac9800
+
+Heap address: 0x00000004cc800000, size: 13112 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+
+CDS archive(s) mapped at: [0x0000000800000000-0x0000000800c02000-0x0000000800c02000), size 12591104, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 0.
+Compressed class space mapped at: 0x0000000801000000-0x0000000841000000, reserved size: 1073741824
+Narrow klass base: 0x0000000800000000, Narrow klass shift: 0, Narrow klass range: 0x100000000
+
+GC Precious Log:
+ CPUs: 8 total, 8 available
+ Memory: 16384M
+ Large Page Support: Disabled
+ NUMA Support: Disabled
+ Compressed Oops: Enabled (Zero based)
+ Heap Region Size: 8M
+ Heap Min Capacity: 8M
+ Heap Initial Capacity: 256M
+ Heap Max Capacity: 13112M
+ Pre-touch: Disabled
+ Parallel Workers: 8
+ Concurrent Workers: 2
+ Concurrent Refinement Workers: 8
+ Periodic GC: Disabled
+
+Heap:
+ garbage-first heap   total 81920K, used 27593K [0x00000004cc800000, 0x0000000800000000)
+  region size 8192K, 1 young (8192K), 0 survivors (0K)
+ Metaspace       used 5644K, committed 5824K, reserved 1056768K
+  class space    used 646K, committed 768K, reserved 1048576K
+
+Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, OA=open archive, CA=closed archive, TAMS=top-at-mark-start (previous, next)
+|   0|0x00000004cc800000, 0x00000004ccffffd0, 0x00000004cd000000| 99%| O|  |TAMS 0x00000004ccffffd0, 0x00000004cc800000| Untracked 
+|   1|0x00000004cd000000, 0x00000004cd2fc748, 0x00000004cd800000| 37%| O|  |TAMS 0x00000004cd000000, 0x00000004cd000000| Untracked 
+|   2|0x00000004cd800000, 0x00000004cd800000, 0x00000004ce000000|  0%| F|  |TAMS 0x00000004cd800000, 0x00000004cd800000| Untracked 
+|   3|0x00000004ce000000, 0x00000004ce000000, 0x00000004ce800000|  0%| F|  |TAMS 0x00000004ce000000, 0x00000004ce000000| Untracked 
+|   4|0x00000004ce800000, 0x00000004ce800000, 0x00000004cf000000|  0%| F|  |TAMS 0x00000004ce800000, 0x00000004ce800000| Untracked 
+|   5|0x00000004cf000000, 0x00000004cf000000, 0x00000004cf800000|  0%| F|  |TAMS 0x00000004cf000000, 0x00000004cf000000| Untracked 
+|   6|0x00000004cf800000, 0x00000004cf8f25a0, 0x00000004d0000000| 11%| E|  |TAMS 0x00000004cf800000, 0x00000004cf800000| Complete 
+|   7|0x00000004d0000000, 0x00000004d0800000, 0x00000004d0800000|100%| O|  |TAMS 0x00000004d0800000, 0x00000004d0000000| Untracked 
+|1637|0x00000007ff000000, 0x00000007ff777000, 0x00000007ff800000| 93%|OA|  |TAMS 0x00000007ff777000, 0x00000007ff000000| Untracked 
+|1638|0x00000007ff800000, 0x00000007ff87f000, 0x0000000800000000|  6%|CA|  |TAMS 0x00000007ff800000, 0x00000007ff800000| Untracked 
+
+Card table byte_map: [0x0000000130635000,0x0000000131fd1000] _byte_map_base: 0x000000012dfd1000
+
+Marking Bits (Prev, Next): (CMBitMap*) 0x00007fcb5dd64c10, (CMBitMap*) 0x00007fcb5dd64c50
+ Prev Bits: [0x000000013396d000, 0x000000014064d000)
+ Next Bits: [0x000000014064d000, 0x000000014d32d000)
+
+Polling page: 0x000000010bff0000
+
+Metaspace:
+
+Usage:
+  Non-class:      4.88 MB used.
+      Class:    646.05 KB used.
+       Both:      5.51 MB used.
+
+Virtual space:
+  Non-class space:        8.00 MB reserved,       4.94 MB ( 62%) committed,  1 nodes.
+      Class space:        1.00 GB reserved,     768.00 KB ( <1%) committed,  1 nodes.
+             Both:        1.01 GB reserved,       5.69 MB ( <1%) committed. 
+
+Chunk freelists:
+   Non-Class:  2.58 MB
+       Class:  3.11 MB
+        Both:  5.69 MB
+
+MaxMetaspaceSize: unlimited
+CompressedClassSpaceSize: 1.00 GB
+Initial GC threshold: 21.00 MB
+Current GC threshold: 21.00 MB
+CDS: on
+MetaspaceReclaimPolicy: balanced
+ - commit_granule_bytes: 65536.
+ - commit_granule_words: 8192.
+ - virtual_space_node_default_size: 1048576.
+ - enlarge_chunks_in_place: 1.
+ - new_chunks_are_fully_committed: 0.
+ - uncommit_free_chunks: 1.
+ - use_allocation_guard: 0.
+ - handle_deallocations: 1.
+
+
+Internal statistics:
+
+num_allocs_failed_limit: 0.
+num_arena_births: 58.
+num_arena_deaths: 0.
+num_vsnodes_births: 2.
+num_vsnodes_deaths: 0.
+num_space_committed: 91.
+num_space_uncommitted: 0.
+num_chunks_returned_to_freelist: 0.
+num_chunks_taken_from_freelist: 146.
+num_chunk_merges: 0.
+num_chunk_splits: 96.
+num_chunks_enlarged: 74.
+num_purges: 0.
+num_inconsistent_stats: 0.
+
+CodeHeap 'non-profiled nmethods': size=120028Kb used=549Kb max_used=549Kb free=119478Kb
+ bounds [0x0000000127762000, 0x00000001279d2000, 0x000000012ec99000]
+CodeHeap 'profiled nmethods': size=120028Kb used=2687Kb max_used=2687Kb free=117340Kb
+ bounds [0x000000012022b000, 0x00000001204cb000, 0x0000000127762000]
+CodeHeap 'non-nmethods': size=5704Kb used=1145Kb max_used=1169Kb free=4558Kb
+ bounds [0x000000011fc99000, 0x000000011ff09000, 0x000000012022b000]
+ total_blobs=1937 nmethods=1498 adapters=361
+ compilation: enabled
+              stopped_count=0, restarted_count=0
+ full_count=0
+
+Compilation events (20 events):
+Event: 11.749 Thread 0x00007fcb5ddd4a00 1500       3       java.lang.ref.ReferenceQueue::reallyPoll (65 bytes)
+Event: 11.749 Thread 0x00007fcb5ddd4a00 nmethod 1500 0x00000001204c5710 code [0x00000001204c58e0, 0x00000001204c5e30]
+Event: 12.128 Thread 0x00007fcb5ddd4a00 1501   !   3       jdk.internal.loader.BuiltinClassLoader$2::run (114 bytes)
+Event: 12.129 Thread 0x00007fcb5ddd4a00 nmethod 1501 0x00000001204c5f10 code [0x00000001204c61a0, 0x00000001204c7010]
+Event: 18.083 Thread 0x00007fcb5ddd4a00 1502       3       org.jpype.pkg.JPypePackageManager::isModulePackage (109 bytes)
+Event: 18.084 Thread 0x00007fcb5ddd4a00 nmethod 1502 0x00000001204c7510 code [0x00000001204c77c0, 0x00000001204c8580]
+Event: 31.276 Thread 0x00007fcb5ddd4a00 1503       1       org.jpype.ref.JPypeReferenceQueue::access$100 (5 bytes)
+Event: 31.278 Thread 0x00007fcb5ddd4a00 nmethod 1503 0x00000001277ead90 code [0x00000001277eaf20, 0x00000001277eafd0]
+Event: 31.535 Thread 0x00007fcb5ddd4a00 1504       1       org.jpype.ref.JPypeReferenceQueue::access$200 (5 bytes)
+Event: 31.535 Thread 0x00007fcb5ddd4a00 nmethod 1504 0x00000001277eb090 code [0x00000001277eb220, 0x00000001277eb2d0]
+Event: 49.273 Thread 0x00007fcb5ddd4a00 1505   !   3       java.lang.ref.ReferenceQueue::remove (125 bytes)
+Event: 49.276 Thread 0x00007fcb5ddd4a00 nmethod 1505 0x00000001204c8990 code [0x00000001204c8bc0, 0x00000001204c9350]
+Event: 68.245 Thread 0x00007fcb5ddd4a00 1507       3       java.util.Collections$EmptyList::iterator (4 bytes)
+Event: 68.248 Thread 0x00007fcb5ddd4a00 nmethod 1507 0x00000001204c9690 code [0x00000001204c9840, 0x00000001204c99b0]
+Event: 68.248 Thread 0x00007fcb5ddd4a00 1508       3       jdk.internal.loader.URLClassPath$JarLoader::findResource (18 bytes)
+Event: 68.249 Thread 0x00007fcb5ddd4a00 nmethod 1508 0x00000001204c9a90 code [0x00000001204c9c60, 0x00000001204c9ed0]
+Event: 76.098 Thread 0x00007fcb5ddd4a00 1509       3       org.jpype.manager.TypeManager$Destroyer::add (101 bytes)
+Event: 76.100 Thread 0x00007fcb5ddd4a00 nmethod 1509 0x00000001204c9f90 code [0x00000001204ca180, 0x00000001204ca620]
+Event: 76.100 Thread 0x00007fcb5ddd4a00 1510       3       org.jpype.manager.TypeManager$Destroyer::add (39 bytes)
+Event: 76.100 Thread 0x00007fcb5ddd4a00 nmethod 1510 0x00000001204ca810 code [0x00000001204ca9c0, 0x00000001204cabe0]
+
+GC Heap History (20 events):
+Event: 0.394 GC heap before
+{Heap before GC invocations=2 (full 2):
+ garbage-first heap   total 81920K, used 12502K [0x00000004cc800000, 0x0000000800000000)
+  region size 8192K, 1 young (8192K), 0 survivors (0K)
+ Metaspace       used 1285K, committed 1472K, reserved 1056768K
+  class space    used 112K, committed 192K, reserved 1048576K
+}
+Event: 0.400 GC heap after
+{Heap after GC invocations=3 (full 3):
+ garbage-first heap   total 81920K, used 12758K [0x00000004cc800000, 0x0000000800000000)
+  region size 8192K, 0 young (0K), 0 survivors (0K)
+ Metaspace       used 1285K, committed 1472K, reserved 1056768K
+  class space    used 112K, committed 192K, reserved 1048576K
+}
+Event: 0.445 GC heap before
+{Heap before GC invocations=3 (full 3):
+ garbage-first heap   total 81920K, used 12758K [0x00000004cc800000, 0x0000000800000000)
+  region size 8192K, 1 young (8192K), 0 survivors (0K)
+ Metaspace       used 1287K, committed 1472K, reserved 1056768K
+  class space    used 112K, committed 192K, reserved 1048576K
+}
+Event: 0.451 GC heap after
+{Heap after GC invocations=4 (full 4):
+ garbage-first heap   total 81920K, used 12775K [0x00000004cc800000, 0x0000000800000000)
+  region size 8192K, 0 young (0K), 0 survivors (0K)
+ Metaspace       used 1287K, committed 1472K, reserved 1056768K
+  class space    used 112K, committed 192K, reserved 1048576K
+}
+Event: 0.675 GC heap before
+{Heap before GC invocations=4 (full 4):
+ garbage-first heap   total 81920K, used 29159K [0x00000004cc800000, 0x0000000800000000)
+  region size 8192K, 2 young (16384K), 0 survivors (0K)
+ Metaspace       used 1878K, committed 2048K, reserved 1056768K
+  class space    used 169K, committed 256K, reserved 1048576K
+}
+Event: 0.679 GC heap after
+{Heap after GC invocations=5 (full 4):
+ garbage-first heap   total 81920K, used 14823K [0x00000004cc800000, 0x0000000800000000)
+  region size 8192K, 1 young (8192K), 1 survivors (8192K)
+ Metaspace       used 1878K, committed 2048K, reserved 1056768K
+  class space    used 169K, committed 256K, reserved 1048576K
+}
+Event: 0.762 GC heap before
+{Heap before GC invocations=5 (full 4):
+ garbage-first heap   total 81920K, used 31207K [0x00000004cc800000, 0x0000000800000000)
+  region size 8192K, 3 young (24576K), 1 survivors (8192K)
+ Metaspace       used 2329K, committed 2432K, reserved 1056768K
+  class space    used 218K, committed 256K, reserved 1048576K
+}
+Event: 0.766 GC heap after
+{Heap after GC invocations=6 (full 4):
+ garbage-first heap   total 81920K, used 16921K [0x00000004cc800000, 0x0000000800000000)
+  region size 8192K, 1 young (8192K), 1 survivors (8192K)
+ Metaspace       used 2329K, committed 2432K, reserved 1056768K
+  class space    used 218K, committed 256K, reserved 1048576K
+}
+Event: 0.996 GC heap before
+{Heap before GC invocations=6 (full 4):
+ garbage-first heap   total 81920K, used 25113K [0x00000004cc800000, 0x0000000800000000)
+  region size 8192K, 3 young (24576K), 1 survivors (8192K)
+ Metaspace       used 2457K, committed 2624K, reserved 1056768K
+  class space    used 237K, committed 320K, reserved 1048576K
+}
+Event: 1.020 GC heap after
+{Heap after GC invocations=7 (full 5):
+ garbage-first heap   total 81920K, used 25836K [0x00000004cc800000, 0x0000000800000000)
+  region size 8192K, 0 young (0K), 0 survivors (0K)
+ Metaspace       used 2457K, committed 2624K, reserved 1056768K
+  class space    used 237K, committed 320K, reserved 1048576K
+}
+Event: 1.452 GC heap before
+{Heap before GC invocations=7 (full 5):
+ garbage-first heap   total 81920K, used 34028K [0x00000004cc800000, 0x0000000800000000)
+  region size 8192K, 2 young (16384K), 0 survivors (0K)
+ Metaspace       used 5464K, committed 5632K, reserved 1056768K
+  class space    used 622K, committed 704K, reserved 1048576K
+}
+Event: 1.483 GC heap after
+{Heap after GC invocations=8 (full 6):
+ garbage-first heap   total 81920K, used 27422K [0x00000004cc800000, 0x0000000800000000)
+  region size 8192K, 0 young (0K), 0 survivors (0K)
+ Metaspace       used 5464K, committed 5632K, reserved 1056768K
+  class space    used 622K, committed 704K, reserved 1048576K
+}
+Event: 1.702 GC heap before
+{Heap before GC invocations=8 (full 6):
+ garbage-first heap   total 81920K, used 27422K [0x00000004cc800000, 0x0000000800000000)
+  region size 8192K, 1 young (8192K), 0 survivors (0K)
+ Metaspace       used 5620K, committed 5824K, reserved 1056768K
+  class space    used 645K, committed 768K, reserved 1048576K
+}
+Event: 1.729 GC heap after
+{Heap after GC invocations=9 (full 7):
+ garbage-first heap   total 81920K, used 27592K [0x00000004cc800000, 0x0000000800000000)
+  region size 8192K, 0 young (0K), 0 survivors (0K)
+ Metaspace       used 5620K, committed 5824K, reserved 1056768K
+  class space    used 645K, committed 768K, reserved 1048576K
+}
+Event: 1.758 GC heap before
+{Heap before GC invocations=9 (full 7):
+ garbage-first heap   total 81920K, used 27592K [0x00000004cc800000, 0x0000000800000000)
+  region size 8192K, 1 young (8192K), 0 survivors (0K)
+ Metaspace       used 5620K, committed 5824K, reserved 1056768K
+  class space    used 645K, committed 768K, reserved 1048576K
+}
+Event: 1.776 GC heap after
+{Heap after GC invocations=10 (full 8):
+ garbage-first heap   total 81920K, used 27592K [0x00000004cc800000, 0x0000000800000000)
+  region size 8192K, 0 young (0K), 0 survivors (0K)
+ Metaspace       used 5620K, committed 5824K, reserved 1056768K
+  class space    used 645K, committed 768K, reserved 1048576K
+}
+Event: 1.800 GC heap before
+{Heap before GC invocations=10 (full 8):
+ garbage-first heap   total 81920K, used 27592K [0x00000004cc800000, 0x0000000800000000)
+  region size 8192K, 1 young (8192K), 0 survivors (0K)
+ Metaspace       used 5620K, committed 5824K, reserved 1056768K
+  class space    used 645K, committed 768K, reserved 1048576K
+}
+Event: 1.818 GC heap after
+{Heap after GC invocations=11 (full 9):
+ garbage-first heap   total 81920K, used 27592K [0x00000004cc800000, 0x0000000800000000)
+  region size 8192K, 0 young (0K), 0 survivors (0K)
+ Metaspace       used 5620K, committed 5824K, reserved 1056768K
+  class space    used 645K, committed 768K, reserved 1048576K
+}
+Event: 16.760 GC heap before
+{Heap before GC invocations=11 (full 9):
+ garbage-first heap   total 81920K, used 27592K [0x00000004cc800000, 0x0000000800000000)
+  region size 8192K, 1 young (8192K), 0 survivors (0K)
+ Metaspace       used 5631K, committed 5824K, reserved 1056768K
+  class space    used 645K, committed 768K, reserved 1048576K
+}
+Event: 16.788 GC heap after
+{Heap after GC invocations=12 (full 10):
+ garbage-first heap   total 81920K, used 27593K [0x00000004cc800000, 0x0000000800000000)
+  region size 8192K, 0 young (0K), 0 survivors (0K)
+ Metaspace       used 5631K, committed 5824K, reserved 1056768K
+  class space    used 645K, committed 768K, reserved 1048576K
+}
+
+Deoptimization events (20 events):
+Event: 1.412 Thread 0x00007fcb3d883a00 Uncommon trap: trap_request=0xffffffbe fr.pc=0x00000001277dbd40 relative=0x0000000000000320
+Event: 1.412 Thread 0x00007fcb3d883a00 Uncommon trap: reason=profile_predicate action=maybe_recompile pc=0x00000001277dbd40 method=jdk.internal.jimage.ImageStringsReader.stringFromByteBufferMatches(Ljava/nio/ByteBuffer;ILjava/lang/String;I)I @ 19 c2
+Event: 1.412 Thread 0x00007fcb3d883a00 DEOPT PACKING pc=0x00000001277dbd40 sp=0x00000003065dfa00
+Event: 1.412 Thread 0x00007fcb3d883a00 DEOPT UNPACKING pc=0x000000011fceb093 sp=0x00000003065df998 mode 2
+Event: 1.412 Thread 0x00007fcb3d883a00 Uncommon trap: trap_request=0xffffffbe fr.pc=0x00000001277dbd40 relative=0x0000000000000320
+Event: 1.412 Thread 0x00007fcb3d883a00 Uncommon trap: reason=profile_predicate action=maybe_recompile pc=0x00000001277dbd40 method=jdk.internal.jimage.ImageStringsReader.stringFromByteBufferMatches(Ljava/nio/ByteBuffer;ILjava/lang/String;I)I @ 19 c2
+Event: 1.412 Thread 0x00007fcb3d883a00 DEOPT PACKING pc=0x00000001277dbd40 sp=0x00000003065dfa00
+Event: 1.412 Thread 0x00007fcb3d883a00 DEOPT UNPACKING pc=0x000000011fceb093 sp=0x00000003065df998 mode 2
+Event: 1.580 Thread 0x00007fcb3d883a00 Uncommon trap: trap_request=0xffffffc6 fr.pc=0x00000001277d9cb0 relative=0x00000000000014f0
+Event: 1.580 Thread 0x00007fcb3d883a00 Uncommon trap: reason=bimorphic_or_optimized_type_check action=maybe_recompile pc=0x00000001277d9cb0 method=java.util.HashMap.putVal(ILjava/lang/Object;Ljava/lang/Object;ZZ)Ljava/lang/Object; @ 91 c2
+Event: 1.580 Thread 0x00007fcb3d883a00 DEOPT PACKING pc=0x00000001277d9cb0 sp=0x00000003065dfcb0
+Event: 1.580 Thread 0x00007fcb3d883a00 DEOPT UNPACKING pc=0x000000011fceb093 sp=0x00000003065dfc70 mode 2
+Event: 1.594 Thread 0x00007fcb3d883a00 Uncommon trap: trap_request=0xffffff45 fr.pc=0x0000000127773dbc relative=0x000000000000019c
+Event: 1.594 Thread 0x00007fcb3d883a00 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000127773dbc method=java.lang.String.hashCode()I @ 42 c2
+Event: 1.594 Thread 0x00007fcb3d883a00 DEOPT PACKING pc=0x0000000127773dbc sp=0x00000003065dbc00
+Event: 1.594 Thread 0x00007fcb3d883a00 DEOPT UNPACKING pc=0x000000011fceb093 sp=0x00000003065dbbb0 mode 2
+Event: 1.595 Thread 0x00007fcb3d883a00 Uncommon trap: trap_request=0xffffff45 fr.pc=0x00000001277985b4 relative=0x0000000000000194
+Event: 1.595 Thread 0x00007fcb3d883a00 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00000001277985b4 method=java.lang.String.startsWith(Ljava/lang/String;I)Z @ 1 c2
+Event: 1.595 Thread 0x00007fcb3d883a00 DEOPT PACKING pc=0x00000001277985b4 sp=0x00000003065dbec0
+Event: 1.595 Thread 0x00007fcb3d883a00 DEOPT UNPACKING pc=0x000000011fceb093 sp=0x00000003065dbe48 mode 2
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (9 events):
+Event: 0.081 Thread 0x00007fcb3d883a00 Exception <a 'java/lang/ClassNotFoundException'{0x00000004dc02d0f0}: com/azul/tooling/Handler> (0x00000004dc02d0f0) 
+thrown [src/hotspot/share/classfile/systemDictionary.cpp, line 259]
+Event: 0.081 Thread 0x00007fcb3d883a00 Exception <a 'java/lang/NoClassDefFoundError'{0x00000004dc02d7c8}: org/jpype/classloader/DynamicClassLoader> (0x00000004dc02d7c8) 
+thrown [src/hotspot/share/classfile/systemDictionary.cpp, line 248]
+Event: 0.175 Thread 0x00007fcb3d883a00 Exception <a 'java/lang/NoSuchMethodError'{0x00000004dc541f10}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeInterface(java.lang.Object, java.lang.Object)'> (0x00000004dc541f10) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 766]
+Event: 0.176 Thread 0x00007fcb3d883a00 Exception <a 'java/lang/IncompatibleClassChangeError'{0x00000004dc545540}: Found class java.lang.Object, but interface was expected> (0x00000004dc545540) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 833]
+Event: 0.525 Thread 0x00007fcb3d883a00 Exception <a 'java/lang/NoSuchMethodError'{0x00000004d015c958}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeStaticInit(java.lang.Object)'> (0x00000004d015c958) 
+thrown [src/hotspot/share/interpreter/linkResolver.cpp, line 766]
+Event: 1.087 Thread 0x00007fcb3d883a00 Implicit null exception at 0x00000001277a26ac to 0x00000001277a27de
+Event: 1.136 Thread 0x00007fcb3d883a00 Exception <a 'java/lang/ClassNotFoundException'{0x00000004cf9243f8}: javax/smartcardio/CardPermission> (0x00000004cf9243f8) 
+thrown [src/hotspot/share/classfile/systemDictionary.cpp, line 259]
+Event: 1.150 Thread 0x00007fcb3d883a00 Exception <a 'java/io/FileNotFoundException'{0x00000004cf9322e0}> (0x00000004cf9322e0) 
+thrown [src/hotspot/share/prims/jni.cpp, line 516]
+Event: 76.095 Thread 0x00007fcb3d886800 Exception <a 'java/lang/InterruptedException'{0x00000004cf800048}> (0x00000004cf800048) 
+thrown [src/hotspot/share/runtime/objectMonitor.cpp, line 1661]
+
+VM Operations (20 events):
+Event: 1.483 Executing VM operation: G1CollectFull done
+Event: 1.585 Executing VM operation: HandshakeAllThreads
+Event: 1.585 Executing VM operation: HandshakeAllThreads done
+Event: 1.702 Executing VM operation: G1CollectFull
+Event: 1.729 Executing VM operation: G1CollectFull done
+Event: 1.758 Executing VM operation: G1CollectFull
+Event: 1.776 Executing VM operation: G1CollectFull done
+Event: 1.800 Executing VM operation: G1CollectFull
+Event: 1.818 Executing VM operation: G1CollectFull done
+Event: 2.820 Executing VM operation: Cleanup
+Event: 2.820 Executing VM operation: Cleanup done
+Event: 6.835 Executing VM operation: Cleanup
+Event: 6.835 Executing VM operation: Cleanup done
+Event: 12.862 Executing VM operation: Cleanup
+Event: 12.862 Executing VM operation: Cleanup done
+Event: 16.760 Executing VM operation: G1CollectFull
+Event: 16.788 Executing VM operation: G1CollectFull done
+Event: 76.093 Executing VM operation: ThreadDump
+Event: 76.093 Executing VM operation: ThreadDump done
+Event: 76.100 Executing VM operation: Exit
+
+Events (20 events):
+Event: 1.585 loading class java/util/AbstractList$Itr done
+Event: 1.585 loading class java/util/AbstractList$ListItr
+Event: 1.585 loading class java/util/AbstractList$ListItr done
+Event: 1.585 loading class java/util/AbstractList$RandomAccessSubList
+Event: 1.585 loading class java/util/AbstractList$SubList
+Event: 1.585 loading class java/util/AbstractList$SubList done
+Event: 1.585 loading class java/util/AbstractList$RandomAccessSubList done
+Event: 1.585 loading class java/util/ArrayList$ListItr
+Event: 1.585 loading class java/util/ArrayList$ListItr done
+Event: 76.084 loading class jdk/internal/misc/Signal$1
+Event: 76.084 loading class jdk/internal/misc/Signal$1 done
+Event: 76.085 Thread 0x00007fcb5eac9800 Thread added: 0x00007fcb5eac9800
+Event: 76.085 Protecting memory [0x000000031164f000,0x0000000311653000] with protection modes 0
+Event: 76.086 Thread 0x00007fcb2f174c00 Thread added: 0x00007fcb2f174c00
+Event: 76.086 Protecting memory [0x0000000311752000,0x0000000311756000] with protection modes 0
+Event: 76.096 Protecting memory [0x000000030da4a000,0x000000030da4e000] with protection modes 3
+Event: 76.096 Thread 0x00007fcb3d886800 Thread exited: 0x00007fcb3d886800
+Event: 76.100 Protecting memory [0x0000000311752000,0x0000000311756000] with protection modes 3
+Event: 76.100 Thread 0x00007fcb2f174c00 Thread exited: 0x00007fcb2f174c00
+Event: 76.100 Protecting memory [0x000000030d12f000,0x000000030d133000] with protection modes 3
+
+
+Dynamic libraries:
+0x00007ff80fbf4000 	/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation
+0x00007ff80fa3a000 	/usr/lib/libobjc.A.dylib
+0x00007ff81ad61000 	/usr/lib/liboah.dylib
+0x00007ff81ad95000 	/usr/lib/libfakelink.dylib
+0x00007ff811e90000 	/usr/lib/libicucore.A.dylib
+0x00007ff81ad93000 	/usr/lib/libSystem.B.dylib
+0x00007ff81ad99000 	/System/Library/PrivateFrameworks/SoftLinking.framework/Versions/A/SoftLinking
+0x00007ff80fb59000 	/usr/lib/libc++abi.dylib
+0x00007ff80fb00000 	/usr/lib/libc++.1.dylib
+0x00007ff81ad8e000 	/usr/lib/system/libcache.dylib
+0x00007ff81ad4a000 	/usr/lib/system/libcommonCrypto.dylib
+0x00007ff81ad73000 	/usr/lib/system/libcompiler_rt.dylib
+0x00007ff81ad69000 	/usr/lib/system/libcopyfile.dylib
+0x00007ff80f935000 	/usr/lib/system/libcorecrypto.dylib
+0x00007ff80f9f3000 	/usr/lib/system/libdispatch.dylib
+0x00007ff80fbb3000 	/usr/lib/system/libdyld.dylib
+0x00007ff81ad85000 	/usr/lib/system/libkeymgr.dylib
+0x00007ff81ad28000 	/usr/lib/system/libmacho.dylib
+0x00007ff81a3a3000 	/usr/lib/system/libquarantine.dylib
+0x00007ff81ad83000 	/usr/lib/system/libremovefile.dylib
+0x00007ff814a80000 	/usr/lib/system/libsystem_asl.dylib
+0x00007ff80f8de000 	/usr/lib/system/libsystem_blocks.dylib
+0x00007ff80fa77000 	/usr/lib/system/libsystem_c.dylib
+0x00007ff81ad7b000 	/usr/lib/system/libsystem_collections.dylib
+0x00007ff8196d5000 	/usr/lib/system/libsystem_configuration.dylib
+0x00007ff818981000 	/usr/lib/system/libsystem_containermanager.dylib
+0x00007ff81aa5a000 	/usr/lib/system/libsystem_coreservices.dylib
+0x00007ff812124000 	/usr/lib/system/libsystem_darwin.dylib
+0x00007ff81ad86000 	/usr/lib/system/libsystem_dnssd.dylib
+0x00007ff80fa74000 	/usr/lib/system/libsystem_featureflags.dylib
+0x00007ff80fbc9000 	/usr/lib/system/libsystem_info.dylib
+0x00007ff81acc0000 	/usr/lib/system/libsystem_m.dylib
+0x00007ff80f9c7000 	/usr/lib/system/libsystem_malloc.dylib
+0x00007ff814a1b000 	/usr/lib/system/libsystem_networkextension.dylib
+0x00007ff81254a000 	/usr/lib/system/libsystem_notify.dylib
+0x00007ff8210bd000 	/usr/lib/system/libsystem_product_info_filter.dylib
+0x00007ff8196d9000 	/usr/lib/system/libsystem_sandbox.dylib
+0x00007ff81ad80000 	/usr/lib/system/libsystem_secinit.dylib
+0x00007ff80fb6f000 	/usr/lib/system/libsystem_kernel.dylib
+0x00007ff80fbbf000 	/usr/lib/system/libsystem_platform.dylib
+0x00007ff80fba7000 	/usr/lib/system/libsystem_pthread.dylib
+0x00007ff81633a000 	/usr/lib/system/libsystem_symptoms.dylib
+0x00007ff80f91c000 	/usr/lib/system/libsystem_trace.dylib
+0x00007ff81ad56000 	/usr/lib/system/libunwind.dylib
+0x00007ff80f8e0000 	/usr/lib/system/libxpc.dylib
+0x000000010bd63000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/_typing.cpython-311-darwin.so
+0x000000010bd78000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/_json.cpython-311-darwin.so
+0x000000010bd92000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/fcntl.cpython-311-darwin.so
+0x000000010bda0000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/_posixsubprocess.cpython-311-darwin.so
+0x000000010bdb0000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/select.cpython-311-darwin.so
+0x000000010bdd6000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/math.cpython-311-darwin.so
+0x000000010be1b000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/_ctypes.cpython-311-darwin.so
+0x000000010bdfd000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libffi.8.dylib
+0x000000010be64000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/_struct.cpython-311-darwin.so
+0x000000010bf82000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/zmq/backend/cython/_device.cpython-311-darwin.so
+0x000000010c043000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libzmq.5.dylib
+0x000000010c26c000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libsodium.23.dylib
+0x000000010c4ff000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libc++.1.0.dylib
+0x000000010bfb4000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/zmq/backend/cython/context.cpython-311-darwin.so
+0x000000010c1c9000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/zmq/backend/cython/socket.cpython-311-darwin.so
+0x000000010bff3000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/zmq/backend/cython/message.cpython-311-darwin.so
+0x000000010bdc7000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/_bisect.cpython-311-darwin.so
+0x000000010bfa4000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/_random.cpython-311-darwin.so
+0x000000010c02d000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/_sha512.cpython-311-darwin.so
+0x000000010c3fd000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/_pickle.cpython-311-darwin.so
+0x000000010c221000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/zmq/backend/cython/_poll.cpython-311-darwin.so
+0x000000010c24a000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/zmq/backend/cython/_proxy_steerable.cpython-311-darwin.so
+0x000000010c449000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/zmq/backend/cython/_version.cpython-311-darwin.so
+0x000000010c45f000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/zmq/backend/cython/error.cpython-311-darwin.so
+0x000000010c476000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/zmq/backend/cython/utils.cpython-311-darwin.so
+0x000000010bfe1000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/_heapq.cpython-311-darwin.so
+0x000000010c4c8000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/_socket.cpython-311-darwin.so
+0x000000010c82f000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/array.cpython-311-darwin.so
+0x000000010c87d000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/_ssl.cpython-311-darwin.so
+0x000000010c968000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libssl.3.dylib
+0x000000010cf44000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libcrypto.3.dylib
+0x000000010c852000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/binascii.cpython-311-darwin.so
+0x000000010c8eb000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libz.1.2.13.dylib
+0x000000010c4b5000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/_opcode.cpython-311-darwin.so
+0x000000010c4f4000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/_contextvars.cpython-311-darwin.so
+0x000000010c928000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/_asyncio.cpython-311-darwin.so
+0x000000010c867000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/_queue.cpython-311-darwin.so
+0x000000010cdc9000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/_hashlib.cpython-311-darwin.so
+0x000000010c94b000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/_blake2.cpython-311-darwin.so
+0x000000010cde9000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/_datetime.cpython-311-darwin.so
+0x000000010cf24000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/zlib.cpython-311-darwin.so
+0x000000010c8d1000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/tornado/speedups.abi3.so
+0x000000010d87f000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/_curses.cpython-311-darwin.so
+0x000000010d8f0000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libncursesw.6.dylib
+0x000000010d999000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libtinfow.6.dylib
+0x000000010db52000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/_decimal.cpython-311-darwin.so
+0x000000010d861000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/termios.cpython-311-darwin.so
+0x000000010d8c1000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/_bz2.cpython-311-darwin.so
+0x000000010d964000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libbz2.1.0.8.dylib
+0x000000010d8d2000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/_lzma.cpython-311-darwin.so
+0x000000010dd07000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/liblzma.5.dylib
+0x000000010c8dd000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/_uuid.cpython-311-darwin.so
+0x000000010db09000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/_csv.cpython-311-darwin.so
+0x000000010d872000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/resource.cpython-311-darwin.so
+0x000000010e261000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/_sqlite3.cpython-311-darwin.so
+0x000000010e426000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libsqlite3.0.dylib
+0x000000010ec20000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/unicodedata.cpython-311-darwin.so
+0x000000010db20000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/_scproxy.cpython-311-darwin.so
+0x00007ff8106bb000 	/System/Library/Frameworks/SystemConfiguration.framework/Versions/A/SystemConfiguration
+0x00007ff8196e1000 	/System/Library/PrivateFrameworks/AppleSystemInfo.framework/Versions/A/AppleSystemInfo
+0x00007ff812494000 	/System/Library/Frameworks/IOKit.framework/Versions/A/IOKit
+0x00007ff811b35000 	/System/Library/Frameworks/Security.framework/Versions/A/Security
+0x00007ff81a3ca000 	/usr/lib/libbsm.0.dylib
+0x00007ff813b9b000 	/usr/lib/libnetwork.dylib
+0x00007ff814a33000 	/usr/lib/libMobileGestalt.dylib
+0x00007ff816528000 	/usr/lib/libDiagnosticMessagesClient.dylib
+0x00007ff814a32000 	/usr/lib/libenergytrace.dylib
+0x00007ff81acad000 	/usr/lib/libz.1.dylib
+0x00007ff81ad2e000 	/usr/lib/system/libkxld.dylib
+0x00007ff8109ac000 	/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation
+0x00007ff819ffd000 	/System/Library/PrivateFrameworks/IOMobileFramebuffer.framework/Versions/A/IOMobileFramebuffer
+0x00007ff81778a000 	/System/Library/PrivateFrameworks/CoreAutoLayout.framework/Versions/A/CoreAutoLayout
+0x00007ff81b01a000 	/usr/lib/libcompression.dylib
+0x00007ff81458c000 	/System/Library/Frameworks/CFNetwork.framework/Versions/A/CFNetwork
+0x00007ff816617000 	/System/Library/Frameworks/DiskArbitration.framework/Versions/A/DiskArbitration
+0x00007ff81aed6000 	/usr/lib/libarchive.2.dylib
+0x00007ff8177d2000 	/usr/lib/libxml2.2.dylib
+0x00007ff8211e8000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/CoreServices
+0x00007ff8196e5000 	/usr/lib/liblangid.dylib
+0x00007ff81b4f2000 	/usr/lib/liblzma.5.dylib
+0x00007ff81afe8000 	/usr/lib/libapple_nghttp2.dylib
+0x00007ff815f5d000 	/usr/lib/libsqlite3.dylib
+0x00007ffb27d51000 	/usr/lib/libCoreEntitlements.dylib
+0x00007ff81aa3c000 	/System/Library/PrivateFrameworks/AppleFSCompression.framework/Versions/A/AppleFSCompression
+0x00007ff81a3b2000 	/usr/lib/libcoretls.dylib
+0x00007ff81b50c000 	/usr/lib/libcoretls_cfhelpers.dylib
+0x00007ff81b015000 	/usr/lib/libpam.2.dylib
+0x00007ff81b57b000 	/usr/lib/libxar.1.dylib
+0x00007ff81aa4c000 	/usr/lib/libbz2.1.0.dylib
+0x00007ff81ad9a000 	/usr/lib/libpcap.A.dylib
+0x00007ff816332000 	/usr/lib/libdns_services.dylib
+0x00007ff81add4000 	/usr/lib/libiconv.2.dylib
+0x00007ff81ad27000 	/usr/lib/libcharset.1.dylib
+0x00007ff817755000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/FSEvents.framework/Versions/A/FSEvents
+0x00007ff81212e000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/CarbonCore.framework/Versions/A/CarbonCore
+0x00007ff81657b000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Metadata
+0x00007ff81aa5f000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/OSServices.framework/Versions/A/OSServices
+0x00007ff81af5d000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/SearchKit.framework/Versions/A/SearchKit
+0x00007ff8162c5000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/AE.framework/Versions/A/AE
+0x00007ff8100f5000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/LaunchServices
+0x00007ff81b4a3000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/DictionaryServices.framework/Versions/A/DictionaryServices
+0x00007ff817762000 	/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/SharedFileList.framework/Versions/A/SharedFileList
+0x00007ff81a3a6000 	/usr/lib/libCheckFix.dylib
+0x00007ff814a97000 	/System/Library/PrivateFrameworks/TCC.framework/Versions/A/TCC
+0x00007ff8196e7000 	/System/Library/PrivateFrameworks/CoreNLP.framework/Versions/A/CoreNLP
+0x00007ff81652b000 	/System/Library/PrivateFrameworks/MetadataUtilities.framework/Versions/A/MetadataUtilities
+0x00007ff81076f000 	/usr/lib/libmecabra.dylib
+0x00007ff821480000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate
+0x00007ff81a3da000 	/usr/lib/libmecab.dylib
+0x00007ff81073a000 	/usr/lib/libCRFSuite.dylib
+0x00007ff81a434000 	/usr/lib/libgermantok.dylib
+0x00007ff81afc3000 	/usr/lib/libThaiTokenizer.dylib
+0x00007ff81661e000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vImage.framework/Versions/A/vImage
+0x00007ff8211bf000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/vecLib
+0x00007ff81b5bc000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libvMisc.dylib
+0x00007ff819dfc000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libvDSP.dylib
+0x00007ff810473000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib
+0x00007ff81b0f8000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libLAPACK.dylib
+0x00007ff81a437000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libLinearAlgebra.dylib
+0x00007ff81b000000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libSparseBLAS.dylib
+0x00007ff81b0f2000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libQuadrature.dylib
+0x00007ff8197d2000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBNNS.dylib
+0x00007ff810645000 	/System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libSparse.dylib
+0x00007ff8164fa000 	/System/Library/PrivateFrameworks/CoreAnalytics.framework/Versions/A/CoreAnalytics
+0x00007ff8197cb000 	/System/Library/PrivateFrameworks/LinguisticData.framework/Versions/A/LinguisticData
+0x00007ff8105fb000 	/System/Library/PrivateFrameworks/Lexicon.framework/Versions/A/Lexicon
+0x00007ff81b5b5000 	/usr/lib/libChineseTokenizer.dylib
+0x00007ff810d69000 	/System/Library/PrivateFrameworks/LanguageModeling.framework/Versions/A/LanguageModeling
+0x00007ff81afc5000 	/System/Library/PrivateFrameworks/AppleSauce.framework/Versions/A/AppleSauce
+0x00007ff819feb000 	/System/Library/PrivateFrameworks/CoreEmoji.framework/Versions/A/CoreEmoji
+0x00007ff81aec5000 	/usr/lib/libcmph.dylib
+0x00007ff817739000 	/System/Library/Frameworks/OpenDirectory.framework/Versions/A/Frameworks/CFOpenDirectory.framework/Versions/A/CFOpenDirectory
+0x00007ff81772d000 	/System/Library/Frameworks/OpenDirectory.framework/Versions/A/OpenDirectory
+0x00007ff81b50e000 	/System/Library/PrivateFrameworks/APFS.framework/Versions/A/APFS
+0x00007ff81a301000 	/System/Library/Frameworks/SecurityFoundation.framework/Versions/A/SecurityFoundation
+0x00007ff81b589000 	/usr/lib/libutil.dylib
+0x00007ff812458000 	/System/Library/PrivateFrameworks/CoreServicesStore.framework/Versions/A/CoreServicesStore
+0x00007ff817787000 	/usr/lib/libapp_launch_measurement.dylib
+0x00007ff81b58d000 	/usr/lib/libxslt.1.dylib
+0x00007ff81a38e000 	/System/Library/PrivateFrameworks/BackgroundTaskManagement.framework/Versions/A/BackgroundTaskManagement
+0x00007ff81899e000 	/System/Library/Frameworks/IOSurface.framework/Versions/A/IOSurface
+0x000000010db2d000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/_lsprof.cpython-311-darwin.so
+0x000000010e3a2000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/psutil/_psutil_osx.abi3.so
+0x000000010db3d000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/psutil/_psutil_posix.abi3.so
+0x000000010e3d1000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/pyexpat.cpython-311-darwin.so
+0x000000010f341000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libexpat.1.8.10.dylib
+0x000000010f622000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_cython.cpython-311-darwin.so
+0x000000010f5ca000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/greenlet/_greenlet.cpython-311-darwin.so
+0x000000010f603000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/_multibytecodec.cpython-311-darwin.so
+0x0000000114534000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/_jpype.cpython-311-darwin.so
+0x000000010ff39000 	/opt/homebrew/Caskroom/miniforge/base/envs/sandbox/lib/jvm/lib/libjli.dylib
+0x00007ff826ebc000 	/System/Library/Frameworks/Cocoa.framework/Versions/A/Cocoa
+0x00007ff8125a8000 	/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit
+0x00007ff815b19000 	/System/Library/Frameworks/CoreData.framework/Versions/A/CoreData
+0x00007ff813437000 	/System/Library/PrivateFrameworks/UIFoundation.framework/Versions/A/UIFoundation
+0x00007ff820dc0000 	/System/Library/PrivateFrameworks/RemoteViewServices.framework/Versions/A/RemoteViewServices
+0x00007ff81905f000 	/System/Library/PrivateFrameworks/XCTTargetBootstrap.framework/Versions/A/XCTTargetBootstrap
+0x00007ff81cc58000 	/System/Library/PrivateFrameworks/InternationalSupport.framework/Versions/A/InternationalSupport
+0x00007ff81cce2000 	/System/Library/PrivateFrameworks/UserActivity.framework/Versions/A/UserActivity
+0x00007ff81c03c000 	/usr/lib/libspindump.dylib
+0x00007ff8136c5000 	/System/Library/Frameworks/UniformTypeIdentifiers.framework/Versions/A/UniformTypeIdentifiers
+0x00007ff8189b9000 	/System/Library/Frameworks/Metal.framework/Versions/A/Metal
+0x00007ff819064000 	/System/Library/PrivateFrameworks/CoreSVG.framework/Versions/A/CoreSVG
+0x00007ff814ab0000 	/System/Library/PrivateFrameworks/SkyLight.framework/Versions/A/SkyLight
+0x00007ff814e4e000 	/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics
+0x00007ff81babb000 	/System/Library/PrivateFrameworks/IconServices.framework/Versions/A/IconServices
+0x00007ff824b60000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/ApplicationServices
+0x00007ff81904b000 	/System/Library/PrivateFrameworks/DFRFoundation.framework/Versions/A/DFRFoundation
+0x00007ff81da4d000 	/System/Library/Frameworks/AudioToolbox.framework/Versions/A/AudioToolbox
+0x00007ff81cc64000 	/System/Library/PrivateFrameworks/DataDetectorsCore.framework/Versions/A/DataDetectorsCore
+0x00007ff918d5c000 	/System/Library/PrivateFrameworks/TextInput.framework/Versions/A/TextInput
+0x00007ff818d57000 	/System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HIToolbox.framework/Versions/A/HIToolbox
+0x00007ff81718d000 	/System/Library/Frameworks/QuartzCore.framework/Versions/A/QuartzCore
+0x00007ff820df8000 	/System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/SpeechRecognition.framework/Versions/A/SpeechRecognition
+0x00007ff8174e7000 	/System/Library/PrivateFrameworks/CoreUI.framework/Versions/A/CoreUI
+0x00007ff811400000 	/System/Library/Frameworks/CoreAudio.framework/Versions/A/CoreAudio
+0x00007ff81c428000 	/System/Library/PrivateFrameworks/MultitouchSupport.framework/Versions/A/MultitouchSupport
+0x00007ff817721000 	/System/Library/PrivateFrameworks/PerformanceAnalysis.framework/Versions/A/PerformanceAnalysis
+0x00007ffa2898d000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/OpenGL
+0x00007ff81a2c9000 	/System/Library/PrivateFrameworks/MobileKeyBag.framework/Versions/A/MobileKeyBag
+0x00007ff815578000 	/System/Library/Frameworks/ColorSync.framework/Versions/A/ColorSync
+0x00007ff8192db000 	/System/Library/Frameworks/CoreImage.framework/Versions/A/CoreImage
+0x00007ff811214000 	/System/Library/Frameworks/CoreText.framework/Versions/A/CoreText
+0x00007ff819094000 	/System/Library/Frameworks/ImageIO.framework/Versions/A/ImageIO
+0x00007ff81cb8b000 	/System/Library/PrivateFrameworks/TextureIO.framework/Versions/A/TextureIO
+0x00007ff81b734000 	/usr/lib/libate.dylib
+0x00007ff81caac000 	/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libRadiance.dylib
+0x00007ff81cab5000 	/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libJPEG.dylib
+0x00007ff81ca07000 	/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libPng.dylib
+0x00007ff81ca28000 	/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libTIFF.dylib
+0x00007ff81cb14000 	/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libGIF.dylib
+0x00007ff81c344000 	/System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libJP2.dylib
+0x00007ff81ba82000 	/usr/lib/libexpat.1.dylib
+0x00007ff81c2f9000 	/System/Library/PrivateFrameworks/AppleJPEG.framework/Versions/A/AppleJPEG
+0x00007ff818c1b000 	/System/Library/PrivateFrameworks/FontServices.framework/libFontParser.dylib
+0x00007ff81626f000 	/System/Library/PrivateFrameworks/RunningBoardServices.framework/Versions/A/RunningBoardServices
+0x00007ff827477000 	/System/Library/PrivateFrameworks/IOSurfaceAccelerator.framework/Versions/A/IOSurfaceAccelerator
+0x00007ff81c424000 	/System/Library/PrivateFrameworks/WatchdogClient.framework/Versions/A/WatchdogClient
+0x00007ff810e57000 	/System/Library/Frameworks/CoreDisplay.framework/Versions/A/CoreDisplay
+0x00007ff818b19000 	/System/Library/Frameworks/CoreMedia.framework/Versions/A/CoreMedia
+0x00007ff8189b0000 	/System/Library/PrivateFrameworks/IOAccelerator.framework/Versions/A/IOAccelerator
+0x00007ff8178b6000 	/System/Library/Frameworks/CoreVideo.framework/Versions/A/CoreVideo
+0x00007ff81b013000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/MetalPerformanceShaders
+0x00007ff81c461000 	/System/Library/Frameworks/VideoToolbox.framework/Versions/A/VideoToolbox
+0x00007ff8161b9000 	/System/Library/PrivateFrameworks/BaseBoard.framework/Versions/A/BaseBoard
+0x00007ff815f43000 	/System/Library/PrivateFrameworks/ProtocolBuffer.framework/Versions/A/ProtocolBuffer
+0x00007ff81caa5000 	/System/Library/PrivateFrameworks/GPUWrangler.framework/Versions/A/GPUWrangler
+0x00007ff81ca89000 	/System/Library/PrivateFrameworks/IOPresentment.framework/Versions/A/IOPresentment
+0x00007ff81caaf000 	/System/Library/PrivateFrameworks/DSExternalDisplay.framework/Versions/A/DSExternalDisplay
+0x00007ffa28981000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libCoreFSCache.dylib
+0x00007ffb15475000 	/System/Library/PrivateFrameworks/GPUCompiler.framework/Versions/31001/Libraries/libGPUCompilerUtils.dylib
+0x00007ff81cb19000 	/System/Library/PrivateFrameworks/CMCaptureCore.framework/Versions/A/CMCaptureCore
+0x00007ff81c02a000 	/System/Library/PrivateFrameworks/AppServerSupport.framework/Versions/A/AppServerSupport
+0x00007ff81e2e5000 	/System/Library/PrivateFrameworks/perfdata.framework/Versions/A/perfdata
+0x00007ff810f83000 	/System/Library/PrivateFrameworks/AudioToolboxCore.framework/Versions/A/AudioToolboxCore
+0x00007ff818af7000 	/System/Library/PrivateFrameworks/caulk.framework/Versions/A/caulk
+0x00007ff81dbf7000 	/usr/lib/libAudioStatistics.dylib
+0x00007ff9154ff000 	/System/Library/PrivateFrameworks/SystemPolicy.framework/Versions/A/SystemPolicy
+0x00007ff81de52000 	/usr/lib/libSMC.dylib
+0x00007ff826d6f000 	/System/Library/Frameworks/CoreMIDI.framework/Versions/A/CoreMIDI
+0x00007ff81c9d6000 	/usr/lib/libAudioToolboxUtility.dylib
+0x00007ff911734000 	/System/Library/PrivateFrameworks/OSAServicesClient.framework/Versions/A/OSAServicesClient
+0x00007ff81e2f2000 	/usr/lib/libperfcheck.dylib
+0x00007ff915fa9000 	/usr/lib/libmis.dylib
+0x00007ffa289dc000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGLU.dylib
+0x00007ffa289a0000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGFXShared.dylib
+0x00007ffa28ba9000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib
+0x00007ffa289a9000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGLImage.dylib
+0x00007ffa2899d000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libCVMSPluginSupport.dylib
+0x00007ffa28988000 	/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libCoreVMClient.dylib
+0x00007ff819663000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSCore.framework/Versions/A/MPSCore
+0x00007ff81a9a7000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSImage.framework/Versions/A/MPSImage
+0x00007ff81a44d000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSNeuralNetwork.framework/Versions/A/MPSNeuralNetwork
+0x00007ff81a8c1000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSMatrix.framework/Versions/A/MPSMatrix
+0x00007ff81a67c000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSRayIntersector.framework/Versions/A/MPSRayIntersector
+0x00007ff81a8f9000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSNDArray.framework/Versions/A/MPSNDArray
+0x00007ffa2dba3000 	/System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSFunctions.framework/Versions/A/MPSFunctions
+0x00007ff81034c000 	/System/Library/PrivateFrameworks/MetalTools.framework/Versions/A/MetalTools
+0x00007ff8196df000 	/System/Library/PrivateFrameworks/AggregateDictionary.framework/Versions/A/AggregateDictionary
+0x00007ff81b864000 	/usr/lib/libIOReport.dylib
+0x00007ffa29fb8000 	/System/Library/Frameworks/OpenCL.framework/Versions/A/OpenCL
+0x00007ff81bbc8000 	/System/Library/PrivateFrameworks/FaceCore.framework/Versions/A/FaceCore
+0x00007ff81bbb9000 	/System/Library/PrivateFrameworks/GraphVisualizer.framework/Versions/A/GraphVisualizer
+0x00007ffb15380000 	/System/Library/PrivateFrameworks/FontServices.framework/Versions/A/FontServices
+0x00007ff81bfe2000 	/System/Library/PrivateFrameworks/OTSVG.framework/Versions/A/OTSVG
+0x00007ff81749d000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATS.framework/Versions/A/Resources/libFontRegistry.dylib
+0x00007ff81c032000 	/System/Library/PrivateFrameworks/FontServices.framework/libhvf.dylib
+0x00007ffb15381000 	/System/Library/PrivateFrameworks/FontServices.framework/libXTFontStaticRegistryData.dylib
+0x00007ff81ba32000 	/System/Library/PrivateFrameworks/AppleVA.framework/Versions/A/AppleVA
+0x00007ff81dc17000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATS.framework/Versions/A/ATS
+0x00007ff815676000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/HIServices.framework/Versions/A/HIServices
+0x00007ff81cb23000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/PrintCore.framework/Versions/A/PrintCore
+0x00007ff81dfa5000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/QD.framework/Versions/A/QD
+0x00007ff81df9d000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ColorSyncLegacy.framework/Versions/A/ColorSyncLegacy
+0x00007ff81dc07000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/SpeechSynthesis.framework/Versions/A/SpeechSynthesis
+0x00007ff81cae4000 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATSUI.framework/Versions/A/ATSUI
+0x00007ff81df32000 	/usr/lib/libcups.2.dylib
+0x00007ff81e301000 	/System/Library/Frameworks/Kerberos.framework/Versions/A/Kerberos
+0x00007ff81e310000 	/System/Library/Frameworks/GSS.framework/Versions/A/GSS
+0x00007ff81dc83000 	/usr/lib/libresolv.9.dylib
+0x00007ff81c041000 	/System/Library/PrivateFrameworks/Heimdal.framework/Versions/A/Heimdal
+0x00007ff824ef2000 	/System/Library/Frameworks/Kerberos.framework/Versions/A/Libraries/libHeimdalProxy.dylib
+0x00007ff816342000 	/System/Library/Frameworks/Network.framework/Versions/A/Network
+0x00007ff81ba9c000 	/usr/lib/libheimdal-asn1.dylib
+0x00007ff81e35b000 	/System/Library/PrivateFrameworks/CommonAuth.framework/Versions/A/CommonAuth
+0x00007ff81db89000 	/System/Library/PrivateFrameworks/AudioSession.framework/Versions/A/AudioSession
+0x00007ff81bb2c000 	/System/Library/PrivateFrameworks/MediaExperience.framework/Versions/A/MediaExperience
+0x00007ff81da1c000 	/System/Library/PrivateFrameworks/AudioSession.framework/libSessionUtility.dylib
+0x00007ff81dfb1000 	/System/Library/PrivateFrameworks/AudioResourceArbitration.framework/Versions/A/AudioResourceArbitration
+0x00007ff822032000 	/System/Library/PrivateFrameworks/PowerLog.framework/Versions/A/PowerLog
+0x00007ff81baa5000 	/System/Library/PrivateFrameworks/IconFoundation.framework/Versions/A/IconFoundation
+0x00007ff820de8000 	/System/Library/PrivateFrameworks/SpeechRecognitionCore.framework/Versions/A/SpeechRecognitionCore
+0x000000011577f000 	/opt/homebrew/Caskroom/miniforge/base/envs/sandbox/lib/jvm/lib/server/libjvm.dylib
+0x000000010ffa9000 	/opt/homebrew/Caskroom/miniforge/base/envs/sandbox/lib/jvm/lib/libjimage.dylib
+0x0000000114440000 	/opt/homebrew/Caskroom/miniforge/base/envs/sandbox/lib/jvm/lib/libjava.dylib
+0x0000000114941000 	/opt/homebrew/Caskroom/miniforge/base/envs/sandbox/lib/jvm/lib/libnio.dylib
+0x0000000114988000 	/opt/homebrew/Caskroom/miniforge/base/envs/sandbox/lib/jvm/lib/libnet.dylib
+0x00000001149d0000 	/opt/homebrew/Caskroom/miniforge/base/envs/sandbox/lib/jvm/lib/libzip.dylib
+0x0000000151139000 	/opt/homebrew/Caskroom/miniforge/base/envs/sandbox/lib/jvm/lib/libverify.dylib
+0x000000015147f000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/grp.cpython-311-darwin.so
+0x0000000151c8f000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/numpy/core/_multiarray_umath.cpython-311-darwin.so
+0x0000000156a6c000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libopenblasp-r0.3.23.dylib
+0x00000001530f9000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libgfortran.5.dylib
+0x0000000151755000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libomp.dylib
+0x0000000151944000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libquadmath.0.dylib
+0x00000001516b0000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libgcc_s.1.1.dylib
+0x00000001516f9000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/numpy/core/_multiarray_tests.cpython-311-darwin.so
+0x0000000152a6b000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/numpy/linalg/_umath_linalg.cpython-311-darwin.so
+0x0000000151bf5000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/numpy/fft/_pocketfft_internal.cpython-311-darwin.so
+0x0000000152c83000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/numpy/random/mtrand.cpython-311-darwin.so
+0x0000000152bdb000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/numpy/random/bit_generator.cpython-311-darwin.so
+0x0000000152db9000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/numpy/random/_common.cpython-311-darwin.so
+0x0000000152e4e000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/numpy/random/_bounded_integers.cpython-311-darwin.so
+0x0000000151c28000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/numpy/random/_mt19937.cpython-311-darwin.so
+0x0000000151c5d000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/numpy/random/_philox.cpython-311-darwin.so
+0x0000000152f27000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/numpy/random/_pcg64.cpython-311-darwin.so
+0x0000000152c46000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/numpy/random/_sfc64.cpython-311-darwin.so
+0x0000000153df5000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/numpy/random/_generator.cpython-311-darwin.so
+0x00000001148ce000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/_multiprocessing.cpython-311-darwin.so
+0x00000001148e5000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/mmap.cpython-311-darwin.so
+0x0000000154186000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/interval.cpython-311-darwin.so
+0x0000000154537000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/hashtable.cpython-311-darwin.so
+0x000000015407d000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/missing.cpython-311-darwin.so
+0x0000000153082000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/tslibs/dtypes.cpython-311-darwin.so
+0x0000000154422000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/tslibs/conversion.cpython-311-darwin.so
+0x0000000153061000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/tslibs/base.cpython-311-darwin.so
+0x00000001547e8000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/tslibs/nattype.cpython-311-darwin.so
+0x00000001530d1000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/tslibs/np_datetime.cpython-311-darwin.so
+0x0000000154873000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/tslibs/timezones.cpython-311-darwin.so
+0x00000001548fd000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/tslibs/tzconversion.cpython-311-darwin.so
+0x00000001540f8000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/tslibs/ccalendar.cpython-311-darwin.so
+0x00000001549be000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/tslibs/parsing.cpython-311-darwin.so
+0x0000000154b8f000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/tslibs/offsets.cpython-311-darwin.so
+0x0000000154dce000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/tslibs/timedeltas.cpython-311-darwin.so
+0x0000000154ebe000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/tslibs/timestamps.cpython-311-darwin.so
+0x0000000154aa5000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/tslibs/fields.cpython-311-darwin.so
+0x0000000154fb9000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/tslibs/strptime.cpython-311-darwin.so
+0x0000000154122000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/properties.cpython-311-darwin.so
+0x0000000155088000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/tslibs/period.cpython-311-darwin.so
+0x0000000155169000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/tslibs/vectorized.cpython-311-darwin.so
+0x0000000154148000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/ops_dispatch.cpython-311-darwin.so
+0x0000000155351000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/algos.cpython-311-darwin.so
+0x0000000155768000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/lib.cpython-311-darwin.so
+0x00000001552e3000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/tslib.cpython-311-darwin.so
+0x00000001556dd000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/hashing.cpython-311-darwin.so
+0x00000001558a7000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/ops.cpython-311-darwin.so
+0x0000000155ba0000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/index.cpython-311-darwin.so
+0x0000000155f54000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/join.cpython-311-darwin.so
+0x000000015657c000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/sparse.cpython-311-darwin.so
+0x0000000155de3000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/reduction.cpython-311-darwin.so
+0x00000001544c5000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/indexing.cpython-311-darwin.so
+0x0000000155e94000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/internals.cpython-311-darwin.so
+0x0000000155b20000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/writers.cpython-311-darwin.so
+0x000000015687e000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/window/aggregations.cpython-311-darwin.so
+0x0000000154b37000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/window/indexers.cpython-311-darwin.so
+0x00000001a4d99000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/reshape.cpython-311-darwin.so
+0x00000001a5044000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/groupby.cpython-311-darwin.so
+0x00000001a52ff000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/parsers.cpython-311-darwin.so
+0x00000001544e6000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/json.cpython-311-darwin.so
+0x00000001a5517000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pandas/_libs/testing.cpython-311-darwin.so
+0x0000000152c68000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/cmath.cpython-311-darwin.so
+0x000000015416a000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pyproj/_network.cpython-311-darwin.so
+0x00000001a5938000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libproj.25.9.2.1.dylib
+0x00000001a55e0000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libtiff.6.dylib
+0x00000001a6248000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libcurl.4.dylib
+0x00000001a57a2000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libwebp.7.dylib
+0x00000001a64cc000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libzstd.1.5.2.dylib
+0x00000001a6762000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libLerc.4.dylib
+0x00000001a6955000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libjpeg.8.2.2.dylib
+0x00000001a5551000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libdeflate.0.dylib
+0x000000015451d000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libsharpyuv.0.dylib
+0x00000001a570d000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libnghttp2.14.dylib
+0x00000001a6407000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libssh2.1.0.1.dylib
+0x00000001a6696000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libgssapi_krb5.2.2.dylib
+0x00000001a6b77000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libkrb5.3.3.dylib
+0x0000000155f21000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libk5crypto.3.1.dylib
+0x0000000155341000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libcom_err.3.0.dylib
+0x000000015573b000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libkrb5support.1.1.dylib
+0x00000001a558b000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pyproj/_datadir.cpython-311-darwin.so
+0x0000000156a43000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pyproj/_compat.cpython-311-darwin.so
+0x00000001a6d06000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pyproj/_crs.cpython-311-darwin.so
+0x00000001a6ab5000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pyproj/_geod.cpython-311-darwin.so
+0x00000001a5029000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pyproj/list.cpython-311-darwin.so
+0x00000001a6af7000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pyproj/database.cpython-311-darwin.so
+0x00000001a6ef0000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pyproj/_transformer.cpython-311-darwin.so
+0x0000000156a57000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pyproj/_sync.cpython-311-darwin.so
+0x00000001a6f62000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/shapely/lib.cpython-311-darwin.so
+0x00000001a6fbd000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libgeos_c.1.17.2.dylib
+0x00000001a72c1000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libgeos.3.11.2.dylib
+0x00000001a704c000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/shapely/_geometry_helpers.cpython-311-darwin.so
+0x00000001a55b2000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/shapely/_geos.cpython-311-darwin.so
+0x00000001a70d6000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libspatialindex_c.6.1.1.dylib
+0x00000001a7871000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/libspatialindex.6.1.1.dylib
+0x000000015575b000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/lib-dynload/_statistics.cpython-311-darwin.so
+0x00000001a9903000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/grpc/_cython/cygrpc.cpython-311-darwin.so
+0x00000001a8109000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pyarrow/lib.cpython-311-darwin.so
+0x00000001a87f1000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pyarrow/libarrow_python.dylib
+0x00000001a8c0a000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pyarrow/libarrow_dataset.1200.dylib
+0x00000001a91e4000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pyarrow/libarrow_acero.1200.dylib
+0x00000001abc23000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pyarrow/libparquet.1200.dylib
+0x00000001af27e000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pyarrow/libarrow.1200.dylib
+0x00000001a7ed4000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pyarrow/_hdfsio.cpython-311-darwin.so
+0x00000001aba37000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pyarrow/_parquet.cpython-311-darwin.so
+0x00000001abb26000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pyarrow/_fs.cpython-311-darwin.so
+0x00000001a7267000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pyarrow/_hdfs.cpython-311-darwin.so
+0x00000001a8043000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pyarrow/_gcsfs.cpython-311-darwin.so
+0x00000001ac4e1000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/pyarrow/_s3fs.cpython-311-darwin.so
+0x00000001ad000000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/yaml/_yaml.cpython-311-darwin.so
+0x00000001a55c9000 	/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/lib/python3.11/site-packages/markupsafe/_speedups.cpython-311-darwin.so
+
+
+VM Arguments:
+jvm_args: -Xmx13743895347 -Xcheck:jni 
+java_command: <unknown>
+java_class_path (initial): /Users/joaoc/.cache/r5py/r5-v6.6-all.jar
+Launcher Type: generic
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 2                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 8                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 8388608                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 268435456                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 13748928512                               {product} {command line, ergonomic}
+   size_t MaxNewSize                               = 8246001664                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 8388608                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5839372                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122909434                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122909434                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 13748928512                            {manageable} {ergonomic}
+     bool UseCompressedClassPointers               = true                           {product lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseNUMA                                  = false                                     {product} {ergonomic}
+     bool UseNUMAInterleaving                      = false                                     {product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: 
+[error occurred during error reporting (printing log configuration), id 0xb, SIGSEGV (0xb) at pc=0x0000000115ebf22b]
+
+Environment Variables:
+JAVA_HOME=/opt/homebrew/Caskroom/miniforge/base/envs/sandbox/lib/jvm
+PATH=/opt/homebrew/Caskroom/miniforge/base/envs/chronobus/bin:/opt/homebrew/opt/openjdk@11/bin:/usr/local/opt/openjdk/bin:/Users/joaoc/Downloads/google-cloud-sdk/bin:/opt/homebrew/opt/python@3.10/bin:/opt/homebrew/Caskroom/miniforge/base/condabin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/joaoc/.antigen/bundles/robbyrussell/oh-my-zsh/lib:/Users/joaoc/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/git:/Users/joaoc/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/heroku:/Users/joaoc/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/pip:/Users/joaoc/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/lein:/Users/joaoc/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/command-not-found:/Users/joaoc/.antigen/bundles/zsh-users/zsh-autosuggestions:/Users/joaoc/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/sudo:/Users/joaoc/.antigen/bundles/robbyrussell/oh-my-zsh/plugins/autojump:/Users/joaoc/.antigen/bundles/zsh-users/zsh-syntax-highlighting
+SHELL=/bin/zsh
+LC_CTYPE=UTF-8
+
+Signal Handlers:
+   SIGSEGV: crash_handler in libjvm.dylib, mask=11100110100111111111111111111111, flags=SA_RESTART|SA_SIGINFO
+    SIGBUS: crash_handler in libjvm.dylib, mask=11100110100111111111111111111111, flags=SA_RESTART|SA_SIGINFO
+    SIGFPE: crash_handler in libjvm.dylib, mask=11100110100111111111111111111111, flags=SA_RESTART|SA_SIGINFO
+   SIGPIPE: javaSignalHandler in libjvm.dylib, mask=11100110100111111111111111111111, flags=SA_RESTART|SA_SIGINFO
+   SIGXFSZ: javaSignalHandler in libjvm.dylib, mask=11100110100111111111111111111111, flags=SA_RESTART|SA_SIGINFO
+    SIGILL: crash_handler in libjvm.dylib, mask=11100110100111111111111111111111, flags=SA_RESTART|SA_SIGINFO
+   SIGUSR2: SR_handler in libjvm.dylib, mask=00000000000000000000000000000000, flags=SA_RESTART|SA_SIGINFO
+    SIGHUP: UserHandler in libjvm.dylib, mask=11100110100111111111111111111111, flags=SA_RESTART|SA_SIGINFO
+    SIGINT: SIG_IGN, mask=00000000000000000000000000000000, flags=SA_ONSTACK
+   SIGTERM: UserHandler in libjvm.dylib, mask=11100110100111111111111111111111, flags=SA_RESTART|SA_SIGINFO
+   SIGQUIT: UserHandler in libjvm.dylib, mask=11100110100111111111111111111111, flags=SA_RESTART|SA_SIGINFO
+  *** Handler was modified!
+  *** Expected: javaSignalHandler in libjvm.dylib, mask=11100110100111111111111111111111, flags=SA_RESTART|SA_SIGINFO
+   SIGTRAP: crash_handler in libjvm.dylib, mask=11100110100111111111111111111111, flags=SA_RESTART|SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:
+uname: Darwin 21.5.0 Darwin Kernel Version 21.5.0: Tue Apr 26 21:08:29 PDT 2022; root:xnu-8020.121.3~4/RELEASE_ARM64_T8101 x86_64
+OS uptime: 12 days 2:35 hours
+rlimit (soft/hard): STACK 8176k/65520k , CORE 0k/infinity , NPROC 2666/4000 , NOFILE 10240/infinity , AS infinity/infinity , CPU infinity/infinity , DATA infinity/infinity , FSIZE infinity/infinity , MEMLOCK infinity/infinity , RSS infinity/infinity
+load average: 3.73 4.34 4.59
+
+CPU: (EMULATED) total 8 (initial active 8) (1 cores per cpu, 1 threads per core) family 6 model 44 stepping 0 microcode 0x0, cx8, cmov, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, tsc, tscinvbit, aes, clmul, clflush
+
+Memory: 4k page, physical 16777216k(24548k free), swap 4194304k(1038592k free)
+
+vm_info: OpenJDK 64-Bit Server VM (17.0.3+7-LTS) for bsd-amd64 JRE (17.0.3+7-LTS) (Zulu17.34+19-CA), built on Apr 17 2022 02:35:01 by "zulu_re" with clang 4.2.1 Compatible Apple LLVM 11.0.0 (clang-1100.0.33.17)
+
+END.
